@@ -104,23 +104,22 @@ def main():
         for z in range(len(data['vulnerabilities'][x]['value']['refs'])):
             cveref = re.findall('CVE\-\d+\-\d+', data['vulnerabilities'][x]['value']['refs'][z])
             if cveref:
-                for m in range(len(cveref)):
-                    cveset.add(cveref[m])
+                map(cveset.add, cveref)
         uniqcve = list(cveset)
         refs = getxploit(csqlvfeed, uniqcve)
         if refs:
-                vu = data['vulnerabilities'][x]['value']
-                for l in range(len(refs)):
-                    vu['refs'].append(refs[l])
-                vu['confirmed'] = True
-                if not options.dryrun:
-                    mm =  session.put(server_address + '/_api/v2/ws/' + ws_name + '/vulns/' + str(data['vulnerabilities'][x]['key']) + '/', json=vu)
-                    if mm.status_code != 200:
-                        print('ERROR: Updating Vul: ', data['vulnerabilities'][x]['value']['name'])
-                        print(mm.text)
-                else:
-                    print('TEST: Updating Reference for Vul: ', data['vulnerabilities'][x]['value']['name'])
-                refupdated = refupdated + 1
+            vu = data['vulnerabilities'][x]['value']
+            for l in range(len(refs)):
+                vu['refs'].append(refs[l])
+            vu['confirmed'] = True
+            if not options.dryrun:
+                mm =  session.put(server_address + '/_api/v2/ws/' + ws_name + '/vulns/' + str(data['vulnerabilities'][x]['key']) + '/', json=vu)
+                if mm.status_code != 200:
+                    print('ERROR: Updating Vul: ', data['vulnerabilities'][x]['value']['name'])
+                    print(mm.text)
+            else:
+                print('TEST: Updating Reference for Vul: ', data['vulnerabilities'][x]['value']['name'])
+            refupdated = refupdated + 1
 
     closesql(vfeedconn)
 
