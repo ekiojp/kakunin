@@ -9,7 +9,7 @@ Looking CVE's on each vulnerability and lookup for ExploitDB using [vFeed DB](ht
 
 ## Usage
 
-First, get vFeed DB (sqlite) 
+First, get [vFeed DB](https://github.com/toolswatch/vFeed) (sqlite) 
 
 ```
 ~/kakunin$ ./kakunin.py
@@ -40,7 +40,7 @@ optional arguments:
 Run `kakunin.py` for Faraday workspace called `test1`
 
 ```
-~/$ ./kakunin.py -w test1 -i vfeed.db
+~/kakunin$ ./kakunin.py -w test1 -i vfeed.db
 Password:
 Amount of Vulnerabilities in Workspace:  368
 Confirm Vuls and Reference Updated:  17
