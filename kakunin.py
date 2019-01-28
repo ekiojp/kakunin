@@ -103,8 +103,7 @@ def main():
         cveset = set()
         for z in range(len(data['vulnerabilities'][x]['value']['refs'])):
             cveref = re.findall('CVE\-\d+\-\d+', data['vulnerabilities'][x]['value']['refs'][z])
-            if cveref:
-                map(cveset.add, cveref)
+            cveset.update(cveref)
         uniqcve = list(cveset)
         refs = getxploit(csqlvfeed, uniqcve)
         if refs:
