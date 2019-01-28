@@ -47,6 +47,15 @@ Confirm Vuls and Reference Updated:  17
 ~/kakunin$
 ```
 
+## Status Report **before** `kakunin.py`
+
+![status_before](before_kakunin.png)
+
+## Status Report **after** `kakunin.py`
+
+![status_after](after_kakunin.png)
+
+
 # ToDo
 
 - [ ] Make the code nicer
