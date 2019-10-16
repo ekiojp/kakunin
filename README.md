@@ -4,24 +4,24 @@
 
 An script to **Confirm** and add **References** of [Faraday](https://github.com/infobyte/faraday) Vulnerabilities when public exploits are available
 
-Looking CVE's on each vulnerability and lookup for ExploitDB using [vFeed DB](https://github.com/toolswatch/vFeed)
+Looking CVE's on each vulnerability and lookup for ExploitDB using [vFeed DB](https://vfeed.io/)
 
 
 ## Usage
 
-First, get [vFeed DB](https://github.com/toolswatch/vFeed) (sqlite) 
+First, get [vFeed DB](https://vfeed.io/) Currently paid service only
 
 ```
 ~/kakunin$ ./kakunin.py
-  _         _                _
- | | ____ _| | ___   _ _ __ (_)_ __
- | |/ / _` | |/ / | | | '_ \| | '_ \
- |   < (_| |   <| |_| | | | | | | | |
- |_|\_\__,_|_|\_\\__,_|_| |_|_|_| |_|
+ _         _                _
+| | ____ _| | ___   _ _ __ (_)_ __
+| |/ / _` | |/ / | | | '_ \| | '_ \
+|   < (_| |   <| |_| | | | | | | | |
+|_|\_\__,_|_|\_\\__,_|_| |_|_|_| |_|
 
 
 Author: Emilio / @ekio_jp
-Version: 1.0
+Version: 1.2
 
 usage: kakunin.py [-h] [-d] -w <workspace> [-s <server>] -i <vfeed.db>
                   [-u <username>] [-p <password>]

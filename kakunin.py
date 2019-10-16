@@ -8,13 +8,13 @@ import sqlite3
 import requests
 import json
 import getpass
+from pyfiglet import Figlet
 
 # Me
 __author__ = "Emilio / @ekio_jp"
-__version__ = "1.0"
+__version__ = "1.2"
 
 # Config
-motd = 'motd-kakunin.txt'
 tlpcnt = 0
 
 
@@ -40,7 +40,11 @@ def getxploit(c, cve):
 
 
 def parsingopt():
-    parser = argparse.ArgumentParser()
+    f = Figlet(font='standard')
+    print(f.renderText('kakunin'))
+    print('Author: ' + __author__)
+    print('Version: ' + __version__ + '\n')
+    parser = argparse.ArgumentParser(add_help=True)
     parser.add_argument('-d', dest='dryrun', action='store_true', help='Dry-run TEST')
     parser.add_argument('-w', dest='ws_name', required=True, metavar='<workspace>',
                         default='test', help='Faraday Workspace')
@@ -58,10 +62,6 @@ def parsingopt():
         except IOError, msg:
             parser.error(str(msg))
     else:
-        with open(motd, 'r') as sfile:
-            print(sfile.read())
-        print('Author: ' + __author__)
-        print('Version: ' + __version__ + '\n')
         parser.print_help()
         sys.exit(1)
 
